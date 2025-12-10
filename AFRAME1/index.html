@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A-Frame — Marble Table Scene</title>
+  <script src="scripts/aframe.min (1).js"></script>
+</head>
+
+<body>
+  <a-scene background="color:#f3efe9">
+
+    <!-- ================= CAMERA + CURSOR ================= -->
+    <a-entity position="0 1.6 4">
+      <a-camera wasd-controls-enabled="true" look-controls="pointerLockEnabled: true">
+        <a-cursor fuse="false" rayOrigin="mouse" material="color: black; shader: flat"></a-cursor>
+      </a-camera>
+    </a-entity>
+
+    <!-- ================= LIGHTS ================= -->
+    <a-entity light="type:ambient; intensity:0.7"></a-entity>
+    <a-entity light="type:directional; intensity:0.8" position="-1 2 1"></a-entity>
+
+    <!-- ================= WALL + ART PANEL ================= -->
+    <a-box position="0 1.6 -2.4" width="6" height="3.2" depth="0.03" color="#ede7e1"></a-box>
+
+    <!-- Slim vertical grooves -->
+    <a-entity id="grooves">
+      <a-box position="0 1.6 -2.39" width="0.3" height="1.6" depth="0.02" color="#e1d7d0"></a-box>
+      <a-box position="0 2.0 -2.39" width="0.3" height="0.9" depth="0.02" color="#dcd2cb"></a-box>
+    </a-entity>
+
+    <!-- Art piece -->
+    <a-box position="0 2.05 -2.38" width="1.2" height="1.2" depth="0.02" color="#cdbaa9"></a-box>
+
+    <!-- ================= FLOOR + RUG ================= -->
+    <a-plane rotation="-90 0 0" width="8" height="6" color="#f7f6f4" position="0 0 0"></a-plane>
+    <a-plane rotation="-90 0 0" width="3.6" height="2.4" color="light-green" position="0 0.001 0"></a-plane>
+
+    <!-- ================= TABLE TOP ================= -->
+    <a-box id="table-top" position="0 1.05 0" width="2.2" depth="1.0" height="0.08"
+           color="#ffffff" material="metalness:0.1; roughness:0.5"></a-box>
+
+    <!-- Marble veins -->
+    <a-box position="-0.3 1.06 0" width="0.02" height="0.02" depth="1.05"
+           color="#dcdcdc" rotation="0 10 0"></a-box>
+    <a-box position="0.25 1.06 -0.1" width="0.02" height="0.02" depth="1.05"
+           color="#e6e6e6" rotation="0 -8 0"></a-box>
+
+    <!-- ================= TABLE BASE ================= -->
+    <a-entity id="table-base">
+      <a-cylinder position="-0.6 0.45 0" radius="0.22" height="0.9" segments-radial="36" color="#e9ded4"></a-cylinder>
+      <a-cylinder position="0.6 0.45 0" radius="0.22" height="0.9" segments-radial="36" color="#e9ded4"></a-cylinder>
+    </a-entity>
+
+    <!-- ================= CHAIRS ================= -->
+
+    <!-- Left chair -->
+    <a-entity position="-0.9 0 0" rotation="0 5 0">
+      <a-box position="0 0.55 0.9" width="0.56" depth="0.54" height="0.06" color="#efe7df"></a-box>
+      <a-box position="0 0.95 1.06" width="0.56" depth="0.08" height="0.6" color="#efe7df"></a-box>
+      <a-cylinder position="0.23 0.28 0.75" radius="0.03" height="0.56" color="#c89b6b"></a-cylinder>
+      <a-cylinder position="-0.23 0.28 0.75" radius="0.03" height="0.56" color="#c89b6b"></a-cylinder>
+      <a-cylinder position="0.23 0.28 1.05" radius="0.03" height="0.56" color="#c89b6b"></a-cylinder>
+      <a-cylinder position="-0.23 0.28 1.05" radius="0.03" height="0.56" color="#c89b6b"></a-cylinder>
+    </a-entity>
+
+    <!-- Right chair -->
+    <a-entity position="0.9 0 0" rotation="0 -5 0">
+      <a-box position="0 0.55 0.9" width="0.56" depth="0.54" height="0.06" color="#efe7df"></a-box>
+      <a-box position="0 0.95 1.06" width="0.56" depth="0.08" height="0.6" color="#efe7df"></a-box>
+      <a-cylinder position="0.23 0.28 0.75" radius="0.03" height="0.56" color="#c89b6b"></a-cylinder>
+      <a-cylinder position="-0.23 0.28 0.75" radius="0.03" height="0.56" color="#c89b6b"></a-cylinder>
+      <a-cylinder position="0.23 0.28 1.05" radius="0.03" height="0.56" color="#c89b6b"></a-cylinder>
+      <a-cylinder position="-0.23 0.28 1.05" radius="0.03" height="0.56" color="#c89b6b"></a-cylinder>
+    </a-entity>
+
+    <!-- ================= TABLE DECOR ================= -->
+
+    <!-- Milo tin -->
+    <a-cylinder position="-0.25 1.14 0.05" radius="0.09" height="0.22"
+     color="#1e8e3e" material="metalness:0.3"></a-cylinder>
+
+    <!-- Milo Label -->
+    <a-text value="Milo" position="-0.25 1.32 0.05" align="center" width="2"
+    color="#000" font="mozillavr"></a-text>
+
+    <!-- Milk tin -->
+    <a-cylinder position="0.35 1.14 0.05" radius="0.070" height="0.14"
+                color="#2b76b8" material="metalness:0.25"></a-cylinder>
+
+    <!-- Milk Label -->
+    <a-text value="Milk" position="0.35 1.30 0.05" align="center" width="2"
+            color="#000" font="mozillavr"></a-text>
+
+    <!-- Cups -->
+    <a-cylinder position="-0.3 1.15 -0.35" radius="0.1" height="0.18" color="#ffffff"></a-cylinder>
+    <a-torus position="-0.2 1.15 -0.35" radius="0.06" radius-tubular="0.015"
+             rotation="0 0 90" color="#ffffff"></a-torus>
+
+    <a-cylinder position="0.3 1.15 -0.35" radius="0.1" height="0.18" color="#ffffff"></a-cylinder>
+    <a-torus position="0.4 1.15 -0.35" radius="0.06" radius-tubular="0.015"
+             rotation="0 0 90" color="#ffffff"></a-torus>
+
+    <!-- Fruit bowl -->
+    <a-cone position="0.12 1.13 0.33" radius-bottom="0.04" radius-top="0.10" height="0.12" color="#c8c9bb"></a-cone>
+    <a-sphere position="0.05 1.18 0.25" radius="0.04" color="#c2a834"></a-sphere>
+    <a-sphere position="0.18 1.18 0.25" radius="0.04" color="#ffd166"></a-sphere>
+
+    <!-- Table lamp -->
+    <a-entity position="-0.85 1.35 -0.05">
+      <a-cylinder position="0 0.05 0" radius="0.03" height="0.45" color="#b6976a"></a-cylinder>
+      <a-sphere position="0 0.36 0" radius="0.08" color="#dcc7ad"></a-sphere>
+    </a-entity>
+
+    <!-- ================= CAMERA RIG ================= -->
+    <a-entity id="cameraRig">
+      <a-entity camera position="0 1.6 3.2" orbit-camera></a-entity>
+    </a-entity>
+
+    <!-- ================= STANDING LAMP ================= -->
+    <a-cylinder position="-0.8 1.25 -2.1" radius="0.05" height="0.4" color="#c2a673"></a-cylinder>
+    <a-sphere position="-0.8 1.5 -2.1" radius="0.15" color="#c2a673"></a-sphere>
+
+    <!-- ================= DECOR BOXES ================= -->
+    <a-box position="0 1 -2" width="3.5" height="0.1" depth="1.5"
+           material="src:#marbleTex; roughness:0.2; metalness:0.1"></a-box>
+
+    <a-box position="-2 0.55 -2" width="0.6" height="0.1" depth="0.6"
+           material="src:#woodTex"></a-box>
+
+    <a-box position="2 0.55 -2" width="0.6" height="0.1" depth="0.6"
+           material="src:#woodTex"></a-box>
+
+  </a-scene>
+</body>
+</html>
